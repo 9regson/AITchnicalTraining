@@ -1,0 +1,123 @@
+body {
+  font-family: 'Noto Sans KR', Arial, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+.container {
+  max-width: 820px;
+  margin: 30px auto 30px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+  padding: 32px 28px 28px 28px;
+}
+
+header {
+  border-bottom: 2px solid #e6e6e6;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+}
+
+h1 {
+  font-size: 2.1em;
+  margin-bottom: 0.2em;
+  color: #1a237e;
+}
+
+h2 {
+  font-size: 1.3em;
+  color: #3949ab;
+  margin-bottom: 0.5em;
+}
+
+.subtitle {
+  font-size: 1em;
+  color: #616161;
+  margin-bottom: 0.8em;
+}
+
+h3 {
+  margin-top: 1.5em;
+  color: #283593;
+}
+
+h4 {
+  color: #3949ab;
+  margin-top: 1em;
+}
+
+ul, ol {
+  margin-left: 1.2em;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+}
+
+blockquote {
+  background: #e3f2fd;
+  border-left: 5px solid #1976d2;
+  margin: 0.7em 0 0.7em 0;
+  padding: 0.7em 1em;
+  color: #1565c0;
+  font-style: italic;
+}
+
+pre {
+  background: #f1f8e9;
+  border-radius: 7px;
+  padding: 1em 1em 1em 1.2em;
+  margin: 0.5em 0 0.5em 0;
+  overflow-x: auto;
+  font-size: 1em;
+}
+
+code {
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  color: #2e7d32;
+  background: none;
+}
+
+.activity {
+  background: #fffde7;
+  border-left: 5px solid #ffd600;
+  margin: 0.5em 0 1em 0;
+  padding: 0.6em 1em;
+  color: #8d6e63;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+th, td {
+  border: 1px solid #cfd8dc;
+  padding: 0.6em 0.7em;
+  text-align: center;
+}
+
+th {
+  background: #e3eafc;
+  color: #283593;
+}
+
+.highlight {
+  background: #e3f2fd;
+  padding: 1em;
+  border-radius: 6px;
+  margin-top: 1.5em;
+  color: #1976d2;
+  font-weight: bold;
+  text-align: center;
+}
+
+footer {
+  margin-top: 2em;
+}

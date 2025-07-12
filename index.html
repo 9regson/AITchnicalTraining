@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>[데이터 전처리] 실습 수업지도안 (에듀테크 선도교사 연수)</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>고2 데이터 전처리 실습 수업지도안</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>[인공지능 모델링 교과] [데이터 전처리] 실습 수업지도안</h1>
+      <h2>3차시: 결측치 처리, 중복 데이터 제거, 데이터 타입 변환</h2>
+      <p class="subtitle">데이터 파일: 예술의전당 2024 기획 공연 '오페라 관객 통계' </p>
+    </header>
+
+    <section>
+      <h3>1. 수업 목표</h3>
+      <ul>
+        <li>판다스(Pandas)를 활용하여 데이터 전처리의 기본(결측치 처리, 중복 데이터 제거, 데이터 타입 변환)을 실습한다.</li>
+        <li>파인만 기법을 통해 데이터 전처리를 쉽게 이해하고 설명할 수 있도록 한다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>2. 수업 흐름</h3>
+      <h4>도입 (10분)</h4>
+      <ul>
+        <li><strong>파인만 기법 소개</strong><br>
+          "어려운 것도 쉽게! 내가 이해한 것을 친구에게 설명하듯 말해보자."<br>
+          데이터 전처리란?<br>
+          <blockquote>데이터를 깨끗하게 만들어서, 분석이나 예측이 잘 되게 하는 과정!</blockquote>
+        </li>
+        <li><strong>실습 데이터 소개</strong><br>
+          2024년 예술의전당 오페라(라 보엠, 카르멘, 라인의 황금) 관객 데이터<br>
+          성별, 관객 유형(유료/초대), 일자별 관객 수 등 다양한 정보가 있음
+        </li>
+      </ul>
+
+      <h4>전개 (30분)</h4>
+      <ol>
+        <li>
+          <strong>결측치 처리</strong><br>
+          <em>파인만식 설명:</em> "데이터에 빈칸(결측치)이 있으면, 마치 시험지에 이름을 안 쓴 것과 같아. 분석할 때 문제가 생길 수 있으니, 빈칸을 채우거나 빼줘야 해!"
+          <pre><code class="language-python"># 결측치 확인
+print(df.isnull().sum())
+
+# 결측치 채우기 (예: 0으로)
+df = df.fillna(0)
+
+# 결측치 행 삭제
+df = df.dropna()
+          </code></pre>
+          <div class="activity">학생 활동: 결측치가 있는지 확인하고, 직접 채우거나 삭제해보기</div>
+        </li>
+        <li>
+          <strong>중복 데이터 제거</strong><br>
+          <em>파인만식 설명:</em> "같은 줄이 두 번 있으면, 시험지를 두 번 낸 것과 같아. 결과가 이상해질 수 있으니, 중복된 줄은 하나만 남기자!"
+          <pre><code class="language-python"># 중복 데이터 확인
+print(df.duplicated().sum())
+
+# 중복 데이터 제거
+df = df.drop_duplicates()
+          </code></pre>
+          <div class="activity">학생 활동: 중복된 데이터가 있는지 확인하고, 직접 제거해보기</div>
+        </li>
+        <li>
+          <strong>데이터 타입 변환</strong><br>
+          <em>파인만식 설명:</em> "숫자가 문자로 저장되어 있으면, 계산이 안 돼! 숫자는 숫자답게, 날짜는 날짜답게 바꿔줘야 해."
+          <pre><code class="language-python"># '관객수'를 숫자로 변환
+df['관객수'] = df['관객수'].astype(int)
+
+# '일자'를 날짜 타입으로 변환
+df['일자'] = pd.to_datetime(df['일자'])
+          </code></pre>
+          <div class="activity">학생 활동: 데이터 타입을 직접 변환해보기</div>
+        </li>
+      </ol>
+
+      <h4>정리 및 마무리 (5분)</h4>
+      <ul>
+        <li>오늘 배운 내용 다시 설명(파인만 기법 활용)
+          <ul>
+            <li>결측치 처리: 빈칸을 채우거나 빼기</li>
+            <li>중복 제거: 같은 줄은 하나만 남기기</li>
+            <li>데이터 타입 변환: 숫자, 날짜 등 알맞게 바꾸기</li>
+          </ul>
+        </li>
+        <li>질문 및 답변 시간</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>3. 평가 및 피드백</h3>
+      <ul>
+        <li>실습 코드와 결과를 서로 설명해보기(파인만 기법)</li>
+        <li>친구의 설명을 듣고 이해가 안 되는 부분 질문하기</li>
+        <li>교사가 학생별로 실습 결과와 설명을 확인하며 피드백 제공</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>4. 참고 예시 데이터 구조</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>일자</th>
+            <th>작품명</th>
+            <th>성별</th>
+            <th>관객유형</th>
+            <th>관객수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2024-03-01</td>
+            <td>라 보엠</td>
+            <td>남</td>
+            <td>유료</td>
+            <td>120</td>
+          </tr>
+          <tr>
+            <td>2024-03-01</td>
+            <td>라 보엠</td>
+            <td>여</td>
+            <td>초대</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h3>5. 수업 준비물</h3>
+      <ul>
+        <li>실습용 노트북 또는 PC</li>
+        <li>Jupyter Notebook 또는 Colab 환경</li>
+        <li>예술의전당 오페라 관객 데이터 파일</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="highlight">수업은 학생들이 직접 코드를 실행하고, 친구에게 설명할 수 있도록 진행해주세요!<br>
+      <em>“내가 진짜 이해했는지 확인하는 가장 좋은 방법은, 다른 사람에게 쉽게 설명하는 것!”</em></p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
